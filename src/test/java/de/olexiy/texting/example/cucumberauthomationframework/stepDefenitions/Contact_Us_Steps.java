@@ -1,34 +1,18 @@
 package de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions.base.Hooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-public class Contact_Us_Steps {
-    private WebDriver driver;
+import static de.olexiy.texting.example.cucumberauthomationframework.driver.DriverFactory.getDriver;
 
-    @Before("@contactUs")
-    public void setup() {
-        ChromeOptions options = new ChromeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-    }
-
-    @After("@contactUs")
-    public void tearDown() {
-        driver.quit();
-    }
-
+public class Contact_Us_Steps{
+    private final WebDriver driver = getDriver();
     @Given("I access the webdriver university contact us page")
     public void i_access_the_webdriver_university_contact_us_page() {
         driver.get("https://www.webdriveruniversity.com/Contact-Us/contactus.html");

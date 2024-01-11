@@ -2,24 +2,17 @@ package de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions.b
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+
+import static de.olexiy.texting.example.cucumberauthomationframework.driver.DriverFactory.cleanUp;
+import static de.olexiy.texting.example.cucumberauthomationframework.driver.DriverFactory.getDriver;
 
 public class Hooks {
-    private WebDriver driver;
-
     @Before
     public void setup() {
-        ChromeOptions options = new ChromeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        getDriver();
     }
-
     @After
     public void tearDown() {
-        driver.quit();
+        cleanUp();
     }
 }

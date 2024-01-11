@@ -1,34 +1,18 @@
 package de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions.base.Hooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
+import static de.olexiy.texting.example.cucumberauthomationframework.driver.DriverFactory.getDriver;
+
 public class Login_Steps {
-    private WebDriver driver;
-
-    @Before("@login")
-    public void setup() {
-        ChromeOptions options = new ChromeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-    }
-
-    @After("@login")
-    public void tearDown() {
-        driver.quit();
-    }
-
+    private final WebDriver driver = getDriver();
     @Given("I open login page")
     public void i_open_login_page() {
         driver.get("https://www.webdriveruniversity.com/Login-Portal/index.html");
