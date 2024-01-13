@@ -3,14 +3,15 @@ Feature: WebDriver University - Login page
 
   Background:
     Given I open login page
-    When I enter username as "webdriver"
 
-  Scenario: Successful Login
-    And I enter password as "webdriver123"
-    And I click login button
-    Then I should be presented with successful login message
 
-  Scenario: Unsuccessful Login
-    And I enter password as "wrongpassword"
+  Scenario Outline: Validate - Successful & Unsuccessful Login
+    When I enter a username <username>
+    And I enter a password <password>
     And I click login button
-    Then I should be presented with unsuccessful login messages
+    Then I should be presented with the following validation message <loginValidationMessage>
+    Examples:
+      | username  | password      | loginValidationMessage |
+      | webdriver | webdriver123  | validation succeeded   |
+      | webdriver1| webdriver123  | validation failed      |
+      | webdriver | wrongpassword | validation failed      |

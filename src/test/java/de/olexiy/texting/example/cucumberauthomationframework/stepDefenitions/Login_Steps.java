@@ -1,46 +1,40 @@
 package de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions;
 
-import de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions.base.Hooks;
+import de.olexiy.texting.example.cucumberauthomationframework.pageObjects.Base_PO;
+import de.olexiy.texting.example.cucumberauthomationframework.pageObjects.Login_PO;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import static de.olexiy.texting.example.cucumberauthomationframework.driver.DriverFactory.getDriver;
-
-public class Login_Steps {
-    private final WebDriver driver = getDriver();
+public class Login_Steps extends Base_PO {
+    private final Login_PO login_po;
+    public Login_Steps(Login_PO login_po) {
+        this.login_po = login_po;
+    }
     @Given("I open login page")
     public void i_open_login_page() {
-        driver.get("https://www.webdriveruniversity.com/Login-Portal/index.html");
+        login_po.navigate_toWebdriverUniversityLoginPage();
     }
-    @When("I enter username as {string}")
-    public void i_enter_username_as(String login) {
-        driver.findElement(By.id("text")).sendKeys(login);
+    @When("I enter a username {}")
+    public void i_enter_a_username(String login) {
+        login_po.setUsername(login);
     }
-    @And("I enter password as {string}")
-    public void i_enter_password_as(String password) {
-        driver.findElement(By.id("password")).sendKeys(password);
+    @And("I enter a password {}")
+    public void i_enter_a_password(String password) {
+        login_po.setPassword(password);
     }
 
     @And("I click login button")
     public void i_click_login_button() {
-        driver.findElement(By.id("login-button")).click();
+        login_po.clickLoginButton();
     }
 
-    @Then("I should be presented with successful login message")
-    public void i_should_be_presented_with_successful_login_message() {
-        String message =  driver.switchTo().alert().getText();
-        System.out.println(message);
-        Assert.assertEquals(message, "validation succeeded");
+    @Then("I should be presented with the following validation message {}")
+    public void i_should_be_presented_with_the_following_validation_message_(String loginValidationMessage) {
+        String message =  readAlertMessage();
+        Assert.assertEquals(message, loginValidationMessage);
     }
 
-    @Then("I should be presented with unsuccessful login messages")
-    public void i_should_be_presented_with_unsuccessful_login_messages() {
-        String message =  driver.switchTo().alert().getText();
-        Assert.assertEquals(message, "validation failed");
-    }
 }
