@@ -11,7 +11,7 @@ Feature: WebDriver University - Login page
     And I click login button
     Then I should be presented with the following validation message <loginValidationMessage>
     Examples:
-      | username  | password      | loginValidationMessage |
-      | webdriver | webdriver123  | validation succeeded   |
-      | webdriver1| webdriver123  | validation failed      |
-      | webdriver | wrongpassword | validation failed      |
+      | username   | password      | loginValidationMessage |
+      | webdriver  | webdriver123  | validation succeeded   |
+      | webdriver1 | webdriver123  | validation failed      |
+      | webdriver  | wrongpassword | validation failed      |

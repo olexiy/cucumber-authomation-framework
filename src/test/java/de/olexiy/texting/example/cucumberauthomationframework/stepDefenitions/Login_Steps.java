@@ -10,17 +10,21 @@ import org.testng.Assert;
 
 public class Login_Steps extends Base_PO {
     private final Login_PO login_po;
+
     public Login_Steps(Login_PO login_po) {
         this.login_po = login_po;
     }
+
     @Given("I open login page")
     public void i_open_login_page() {
         login_po.navigate_toWebdriverUniversityLoginPage();
     }
+
     @When("I enter a username {}")
     public void i_enter_a_username(String login) {
         login_po.setUsername(login);
     }
+
     @And("I enter a password {}")
     public void i_enter_a_password(String password) {
         login_po.setPassword(password);
@@ -33,7 +37,7 @@ public class Login_Steps extends Base_PO {
 
     @Then("I should be presented with the following validation message {}")
     public void i_should_be_presented_with_the_following_validation_message_(String loginValidationMessage) {
-        String message =  readAlertMessage();
+        String message = readAlertMessage();
         Assert.assertEquals(message, loginValidationMessage);
     }
 

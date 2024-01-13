@@ -1,9 +1,10 @@
 package de.olexiy.texting.example.cucumberauthomationframework.pageObjects;
 
+import de.olexiy.texting.example.cucumberauthomationframework.utils.GlobalVars;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Contact_Us_PO  extends Base_PO{
+public class Contact_Us_PO extends Base_PO {
     public @FindBy(xpath = "//input[@name='first_name']") WebElement firstName;
     public @FindBy(xpath = "//input[@name='last_name']") WebElement lastName;
     public @FindBy(xpath = "//input[@name='email']") WebElement email;
@@ -15,23 +16,23 @@ public class Contact_Us_PO  extends Base_PO{
     }
 
     public void navigate_toWebdriverUniversityContactUsPage() {
-        navigate_toURL("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        navigate_toURL(GlobalVars.WEBDRIVER_UNIVERSITY_URL + "/Contact-Us/contactus.html");
     }
 
     public void setFirstName(String firstName) {
-        this.firstName.sendKeys(firstName);
+        sendKeys(this.firstName, firstName);
     }
 
     public void setLastName(String lastName) {
-        this.lastName.sendKeys(lastName);
+        sendKeys(this.lastName, lastName);
     }
 
     public void setEmailAddress(String email) {
-        this.email.sendKeys(email);
+        sendKeys(this.email, email);
     }
 
     public void setComments(String message) {
-        this.message.sendKeys(message);
+        sendKeys(this.message, message);
     }
 
     public void clickOnSubmitButton() {

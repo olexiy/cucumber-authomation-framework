@@ -21,14 +21,14 @@ public class DriverFactory {
         return webDriver.get();
     }
 
-    private static WebDriver createDriver()  {
+    private static WebDriver createDriver() {
         WebDriver driver = null;
 
         String browserType = getBrowserType();
 
         switch (browserType) {
             case "chrome" -> {
-               //System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+                //System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
                 ChromeOptions options = new ChromeOptions();
                 options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new ChromeDriver(options);
