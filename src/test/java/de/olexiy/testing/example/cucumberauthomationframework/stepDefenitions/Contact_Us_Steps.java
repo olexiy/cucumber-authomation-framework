@@ -1,13 +1,15 @@
-package de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions;
+package de.olexiy.testing.example.cucumberauthomationframework.stepDefenitions;
 
-import de.olexiy.texting.example.cucumberauthomationframework.pageObjects.Base_PO;
-import de.olexiy.texting.example.cucumberauthomationframework.pageObjects.Contact_Us_PO;
+import de.olexiy.testing.example.cucumberauthomationframework.pageObjects.Base_PO;
+import de.olexiy.testing.example.cucumberauthomationframework.pageObjects.Contact_Us_PO;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class Contact_Us_Steps extends Base_PO {
@@ -71,6 +73,7 @@ public class Contact_Us_Steps extends Base_PO {
 
     @Then("I should be presented with a successful contact us submission page")
     public void iShouldBePresentedWithASuccessfulContactUsSubmissionPage() {
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         assert driver.getCurrentUrl()
                 .equals("https://www.webdriveruniversity.com/Contact-Us/contact-form-thank-you.html");
         assert driver.findElement(By.xpath("//h1[text()='Thank You for your Message!']"))

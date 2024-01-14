@@ -1,7 +1,7 @@
-package de.olexiy.texting.example.cucumberauthomationframework.pageObjects;
+package de.olexiy.testing.example.cucumberauthomationframework.pageObjects;
 
-import de.olexiy.texting.example.cucumberauthomationframework.driver.DriverFactory;
-import de.olexiy.texting.example.cucumberauthomationframework.utils.GlobalVars;
+import de.olexiy.testing.example.cucumberauthomationframework.driver.DriverFactory;
+import de.olexiy.testing.example.cucumberauthomationframework.utils.GlobalVars;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

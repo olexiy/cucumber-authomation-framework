@@ -1,4 +1,4 @@
-package de.olexiy.texting.example.cucumberauthomationframework.runners;
+package de.olexiy.testing.example.cucumberauthomationframework.runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
         features = {"classpath:features"},
-        glue = {"classpath:de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions"},
+        glue = {"classpath:de.olexiy.testing.example.cucumberauthomationframework.stepDefenitions"},
         monochrome = true,
         dryRun = false,
         tags = "@contactUs or @login",

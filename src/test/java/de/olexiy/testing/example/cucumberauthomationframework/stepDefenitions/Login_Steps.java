@@ -1,7 +1,7 @@
-package de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions;
+package de.olexiy.testing.example.cucumberauthomationframework.stepDefenitions;
 
-import de.olexiy.texting.example.cucumberauthomationframework.pageObjects.Base_PO;
-import de.olexiy.texting.example.cucumberauthomationframework.pageObjects.Login_PO;
+import de.olexiy.testing.example.cucumberauthomationframework.pageObjects.Base_PO;
+import de.olexiy.testing.example.cucumberauthomationframework.pageObjects.Login_PO;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

@@ -1,6 +1,6 @@
-package de.olexiy.texting.example.cucumberauthomationframework.pageObjects;
+package de.olexiy.testing.example.cucumberauthomationframework.pageObjects;
 
-import de.olexiy.texting.example.cucumberauthomationframework.utils.GlobalVars;
+import de.olexiy.testing.example.cucumberauthomationframework.utils.GlobalVars;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

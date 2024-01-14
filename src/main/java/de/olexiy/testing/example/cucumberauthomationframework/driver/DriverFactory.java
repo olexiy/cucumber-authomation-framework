@@ -1,4 +1,4 @@
-package de.olexiy.texting.example.cucumberauthomationframework.driver;
+package de.olexiy.testing.example.cucumberauthomationframework.driver;
 
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;

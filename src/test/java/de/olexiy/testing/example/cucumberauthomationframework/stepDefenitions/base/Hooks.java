@@ -1,5 +1,6 @@
-package de.olexiy.texting.example.cucumberauthomationframework.stepDefenitions.base;
+package de.olexiy.testing.example.cucumberauthomationframework.stepDefenitions.base;
 
+import de.olexiy.testing.example.cucumberauthomationframework.driver.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -9,13 +10,10 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.sql.Timestamp;
 
-import static de.olexiy.texting.example.cucumberauthomationframework.driver.DriverFactory.cleanUp;
-import static de.olexiy.texting.example.cucumberauthomationframework.driver.DriverFactory.getDriver;
-
 public class Hooks {
     @Before
     public void setup() {
-        getDriver();
+        DriverFactory.getDriver();
     }
 
     @AfterStep
@@ -24,7 +22,7 @@ public class Hooks {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             String timeMilliseconds = Long.toString(timestamp.getTime());
 
-            byte[] screenshot = ((TakesScreenshot) getDriver())
+            byte[] screenshot = ((TakesScreenshot) DriverFactory.getDriver())
                     .getScreenshotAs(OutputType.BYTES);
 
             scenario.attach(screenshot, "image/png", timeMilliseconds);
@@ -33,6 +31,6 @@ public class Hooks {
 
     @After
     public void tearDown() {
-        cleanUp();
+        DriverFactory.cleanUp();
     }
 }

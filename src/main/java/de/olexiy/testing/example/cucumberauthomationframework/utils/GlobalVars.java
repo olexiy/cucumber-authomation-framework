@@ -1,4 +1,4 @@
-package de.olexiy.texting.example.cucumberauthomationframework.utils;
+package de.olexiy.testing.example.cucumberauthomationframework.utils;
 
 public class GlobalVars {
     public static final int TIMEOUT = 5;
