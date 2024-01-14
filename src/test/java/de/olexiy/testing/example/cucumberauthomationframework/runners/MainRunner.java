@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
         glue = {"classpath:de.olexiy.testing.example.cucumberauthomationframework.stepDefenitions"},
         monochrome = true,
         dryRun = false,
-        tags = "@contactUs or @login",
+        tags = "",
         plugin = {"pretty", "html:target/cucumber-report.html", "json:target/cucumber.json"}
 )
 public class MainRunner extends AbstractTestNGCucumberTests {
