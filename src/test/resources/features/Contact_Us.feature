@@ -1,4 +1,4 @@
-@contactUs
+@contactUs @regression
 Feature: WebDriver University - Contact Us Page
 
   Scenario: Validate Successful Submission - Unique Data
