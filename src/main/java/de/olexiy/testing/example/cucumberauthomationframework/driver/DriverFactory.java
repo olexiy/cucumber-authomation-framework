@@ -30,12 +30,14 @@ public class DriverFactory {
             case "chrome" -> {
                 //System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
                 ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
                 options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new ChromeDriver(options);
             }
             case "firefox" -> {
                 //System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/geckodriver");
                 FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--headless");
                 options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new FirefoxDriver(options);
             }

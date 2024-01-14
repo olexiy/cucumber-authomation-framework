@@ -73,11 +73,7 @@ public class Contact_Us_Steps extends Base_PO {
 
     @Then("I should be presented with a successful contact us submission page")
     public void iShouldBePresentedWithASuccessfulContactUsSubmissionPage() {
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        assert driver.getCurrentUrl()
-                .equals("https://www.webdriveruniversity.com/Contact-Us/contact-form-thank-you.html");
-        assert driver.findElement(By.xpath("//h1[text()='Thank You for your Message!']"))
-                .isDisplayed();
+        contact_us_po.validate_Successful_SubmissionMessage_Text();
     }
 
 

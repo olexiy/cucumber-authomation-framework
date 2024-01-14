@@ -26,6 +26,15 @@ public class Base_PO {
         getDriver().get(url);
     }
 
+    public void waitFor(By by) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+    }
+
+    public void waitFor(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
     public void sendKeys(By by, String text) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(GlobalVars.TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(by)).sendKeys(text);
